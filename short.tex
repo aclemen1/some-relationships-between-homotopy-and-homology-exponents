@@ -1,0 +1,467 @@
+\documentclass[11pt,a4paper]{amsart}
+\usepackage{t1enc}
+\usepackage[latin1]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amssymb}
+\usepackage[all]{xy}
+\pagestyle{plain}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{exmp}{Example}[section]
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+
+%\DeclareMathOperator{\deg}{deg}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\red}{red}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\bideg}{bideg}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathcal{A}}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+
+\begin{document}
+\sloppy
+
+\title{Some relationships between\\ homotopy and homology exponents}
+\author{Alain Cl\'ement}
+\address{Institute of Mathematics, University of Lausanne, CH-1015 Lausanne-Dorigny, Switzerland}
+\email{alain.clement@ima.unil.ch}
+\date{7th June, 2001}
+\keywords{Cohomology over the integers, Eilenberg-MacLane spaces, stable $2$-stage Postnikov systems, Bockstein spectral sequence and Eilenberg-Moore spectral sequence}
+\subjclass[2000]{Primary 55P20, 55S45; Secondary 57T35}
+
+\begin{abstract}
+We investigate the integral homology of spaces having a homotopy exponent.
+The main examples considered here are simply connected Postnikov pieces with
+finite homotopy groups and we would like to know if it is possible for them
+to have a homology exponent.
+
+By the work of \mbox{H. Cartan} it is well known that the answer is "no" for
+simply connected \mbox{Eilenberg-MacLane} spaces associated to finite groups
+since their integral homology groups contain torsion elements of arbitrarily
+high order. Therefore any finite product of such spaces has the same
+property.
+
+The situation is less trivial when the \mbox{Postnikov} invariants of a
+\mbox{Postnikov} piece are non-trivial. In some cases the space retracts
+onto an \mbox{Eilenberg-MacLane} and thus the question has an obvious
+\mbox{\it topological}  answer. We shall exhibit more complicated spaces
+having elements of arbitrarily high order in integral homology by using
+such \mbox{\it algebraic} tools as \mbox{Cartan's work} and the Bockstein
+spectral sequence.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+\label{s:intro}
+
+All spaces considered here are connected CW-complexes of finite type. Moreover, since we are mainly interested in loop spaces, all H-spaces are homotopy associative.
+
+\section{Cohomology of Eilenberg-MacLane spaces}
+\label{s:cohomology}
+
+\begin{thm}[Steenrod, Adem]
+For any space $X$, $H^*(X;\F_2)$ is (in a natural way) a graded unstable $\A(2)$-module.
+\end{thm}
+
+\begin{proof}
+See \cite{SE-62} for a deep treatment of the subject.
+\end{proof}
+
+The following result allows us to identify the action of the mod $2$ Steenrod algebra on the cohomology of the Eilenberg-MacLane spaces $K(\Z/2,n)$ for $n\geq1$.
+
+\begin{thm}[Serre]
+The graded algebra $H^*(K(\Z/2,n);\F_2)$ is free and isomorphic to the graded polynomial algebra on generators $Sq^I u_n$ where $u_n\in H^n(K(\Z/2,n);\F_2)$ is the fundamental class and $I$ is an admissible sequence with excess $e(I)<n$. The elements $Sq^I u_n$ have degree $\deg(I)+n$.
+\end{thm}
+
+\begin{proof}
+See \cite[Th\'eor\`eme 2, p. 203]{Se-53}.
+\end{proof}
+
+\begin{exmp}
+Let us determine the unstable $\A(2)$-module structure of the algebra $H^*(K(\Z/2,1);\F_2)$. The excess of an admissible sequence $I$ is zero if and only if $I=(0)$. Then the fundamental class $u_1\in H^1(K(\Z/2,1);\F_2)$ is the only generator. Therefore we have
+$$
+H^*(K(\Z/2,1);\F_2)\cong \F_2[u_1]
+$$ and the $\A(2)$-action is given pictorially as follows
+$$\xymatrix@R=-0.1cm{
+\bullet &\bullet\ar@/^10pt/[r]^-{Sq^1} &\bullet\ar@/^20pt/[rr]^-{Sq^2} &\bullet\ar@/^10pt/[r]_-{Sq^1} &\bullet &\bullet\ar@/^10pt/[r]^-{Sq^1} &\bullet \\
+1 &u_1 &u_1^2 &u_1^3\ar@/_10pt/[rr]_-{Sq^2}\ar@/_30pt/[rrr]_-{Sq^3} &u_1^4 &u_1^5 &u_1^6 &\dots
+}$$
+\end{exmp}
+
+\begin{exmp}
+Let us determine the algebra $H^*(K(\Z/2,2);\F_2)$. The excess of an admissible sequence $I=(a_0,a_1,a_2,\dots,a_k)$ is exactly $1$ if and only if $a_l=2^{k-l}$ for all $0\leq l\leq k$. Then we have
+$$
+H^*(K(\Z/2,2);\F_2)\cong\F_2[u_2,Sq^{2^r,\dots,2,1}u_2\ |\ r\geq0]
+$$ with $u_2$ the fundamental class.
+\end{exmp}
+
+\begin{rem}
+Since an Eilenberg-MacLane space is a loop space, its cohomological algebra is a Hopf algebra. Actually, the isomorphism of Serre's theorem is an isomorphism of commutative, associative and connected Hopf algebras. The comultiplication of the (mod $2$) polynomial algebra is determined by ``deconcatenation'': $\Delta(x)=x\otimes1+1\otimes x$. Then clearly $H^*=H^*(K(\Z/2,n);\F_2)$ is primitively generated, i.e. every indecomposable element is primitive. The theorem of Milnor and Moore (see \cite[Proposition 4.21, pp. 234-235]{MM-65}) gives the following short exact sequence of graded $\F_2$-modules:
+$$\xymatrix{
+0\ar[r] &P(\xi H^*)\ar[r] &PH^*\ar[r] &QH^*\ar[r] &0,
+}$$ where $\xi H^*$ is the image of the Frobenius map $\xi:x\mapsto x^2$, $P$ denotes the primitives and $Q$ denotes the indecomposables. This implies that every decomposable element which is primitve is an iterated square of an indecomposable. Finally, let us remark that
+$$
+H^*=\F_2[Sq^I u_n\ |\ \text{$I$ admissible and $e(I)<n$}],
+$$
+$$
+QH^*\cong\F_2\{Sq^I u_n\ |\ \text{$I$ admissible and $e(I)<n$}\}\text{ and}
+$$
+$$
+P^\text{odd}H^*\cong Q^\text{odd}H^*.
+$$
+\end{rem}
+
+To unravel the cohomology over the integers from the mod $2$ cohomology of a space $X$ there is the mod $2$ cohomological Bockstein spectral sequence. This is the spectral sequence associated to the following exact couple obtained by rolling off the long exact sequence induced by the short exact sequence of coefficients $\xymatrix{0\ar[r] &\Z\ar[r]^-{\cdot2} &\Z\ar[r]^-{\red_2} &\Z/2\ar[r] &0}$:
+$$\xymatrix@C=0.2cm{
+H^*(X;\Z)\ar[rr]^{(\cdot 2)_*} &&H^*(X;\Z)\ar[dl]^{(\red_2)_*}\\
+&H^*(X;\F_2),\ar[ul]^{\partial}
+}$$ where $\partial$ denotes the connecting homomorphism of degree $1$.
+We define the {\bf Bockstein homomorphism $\beta$} to be the composite $(\red_2)_*\partial$.
+
+\begin{thm}
+Let $X$ be a space. Then there is a singly-graded spectral sequence of algebras $\{E_r^*(X),d_r\}$, natural with respect to spaces and continuous mappings, with $E_1^*\cong H^*(X;\F_2)$, $d_1=Sq^1=\beta$, the Bockstein homomorphism, and converging (strongly) to $(H^*(X;\Z)/\text{torsion})\otimes\F_2$.
+\end{thm}
+
+\begin{proof}
+See \cite[Theorem 10.3, p. 459]{Mc-00}.
+\end{proof}
+
+The same results hold for an homological Bockstein spectral sequence $\{E^r_*(X),d^r\}$ defined in the same manner.
+
+\begin{prop}
+Let $X$ denote an $H$-space with multiplication $\mu:X\times X\to X$. The mod $2$ Bockstein spectral sequences $\{E_r^*(X),d_r\}$ and $\{E^r_*(X),d^r\}$ are dual (differential) Hopf algebras, where $\mu$ induces the coalgebra structure of $E_r^*(X)$ and the algebra structure of $E^r_*(X)$. In particular, $H^*(X;\F_2)$ and $H_*(X;\F_2)$ are dual Hopf algebras.
+\end{prop}
+
+\begin{proof}
+See \cite[Proposition 4.7, pp. 36-37]{Br-61}.
+\end{proof}
+
+\begin{defn}[Browder]
+Let $A^*$ denote a Hopf algebra over $\F_2$ and denote its dual by $A_*$. An element $x\in A^n$ is said to have {\bf $m$-implications} ($m\geq1$) if there are elements $x_i\not=0\in A_{2^i n}$ such that $x_0=x$ and for each $0\leq i\leq m-1$ one of the two following conditions hold: 
+\begin{itemize}
+\item[1.]{$x_{i+1}=x_i^2$,}
+\item[2.]{there exists $\bar{x}_i\in A_*$ such that $\bar{x}_i(x_i)\not =0$ and $\bar{x}_i^2(x_{i+1})\not =0$.}
+\end{itemize} 
+An element has {\bf $\infty$-implications} if it has $m$-implications for all $m$.
+\end{defn}
+
+\begin{thm}[Browder]
+Let $X$ be an H-space and $x\in P^\text{even}H^*(X;\F_2)$. If $y=Sq^1x\not=0$ then $x$ has $\infty$-implications.
+\end{thm}
+
+\begin{proof}
+See \cite[Theorem 6.12, p. 46]{Br-61}.
+\end{proof}
+
+The existence of a $\infty$-implication contradicts the finiteness of an H-space. Our aim here is to contradict the existence of a cohomology exponent rather than finiteness. The following definition will allow us to detect elements of arbitrarily high order in the cohomology over the integers of a space.
+
+\begin{defn}
+Let $\{E_r^*,d_r\}$ denote the (mod $2$ cohomological) Bockstein spectral sequence of a space. An element $x\in E_r^n$ is said to have {\bf transverse $m$-implications} if $\{x^{2^i}\}\not=0\in E_{r+i}^{2^i n}$ for all $0\leq i\leq m$. An element has {\bf transverse $\infty$-implications} if it has transverse $m$-implications for all $m$.
+\end{defn}
+
+\begin{thm}\label{t:extension}
+Let $x\in P^\text{even}H^*(K(\Z/2,n);\F_2)$. If $y=Sq^1x\not=0$ then $x$ has transverse $\infty$-implications.
+\end{thm}
+
+\begin{proof}[Idea of proof]
+In \cite{Ca-55} H. Cartan constructed a method for computing the homology over the integers of Eilenberg-MacLane spaces. His method exploits the divided square structure of the algebra and involves generators called {\it admissible words} on an alphabet constituted of some letters. The fundamental result of H. Cartan detects all the admissible words whose iterated squares are homology classes of increasing orders. The key fact relays on the possibility to find a one-to-one correspondance between admissible words and admissible sequences. The proof is rather technical and will be exposed in my PhD thesis.
+\end{proof}
+
+We have seen that $H^*(K(\Z/2,n);\F_2)$ is primitively generated and that every primitive is either indecomposable or an iterated square of an indecomposable. Therefore we can reformulate the preceeding result as follows:
+
+\begin{thm}\label{t:extension2}
+Let $x\in Q^\text{even}H^*(K(\Z/2,n);\F_2)$, say $x=Sq^I u_n$ with $I=(a_0,a_1,\dots,a_k)$ admissible of excess $e(I)<n$. If $y=Sq^1x\not=0$, i.e. $a_0$ is even and $y=Sq^{a_0+1,a_1,\dots,a_k}$, then $x$ has transverse $\infty$-implications.
+\end{thm}
+
+\begin{cor}
+The Eilenberg-MacLane spaces $K(\Z/2,n)$, $n\geq2$, have no universal exponent for their (reduced) cohomology over the integers.
+\end{cor}
+
+\begin{proof}
+If $n$ is even, the fundamental class $u_n\in Q^\text{even}H^*(K(\Z/2,n);\F_2)$ has transverse $\infty$-implications. If $n$ is odd, consider the iterated Steenrod square $Sq^{2,1}$. Its excess is exactly $1$ and therefore $Sq^{2,1}u_n\in Q^\text{even}H^*(K(\Z/2,n);\F_2)$ when $n\geq3$. Moreover it ``begins'' with the integer $2$ which is even. Thus  $Sq^{2,1}u_n$ has transverse $\infty$-implications.
+\end{proof}
+
+\begin{exmp}
+Since $Q^\text{even}H^*(K(\Z/2,2);\F_2)=\F_2\{u_2\}$, the fundamental class $u_2$ is the single element in $QH^*(K(\Z/2,2);\F_2)$ with transverse $\infty$-implications.
+\end{exmp}
+
+\begin{cor}
+The exponent of the cohomology group $H^{2^r m+1}(K(\Z/2,2);\Z)$, with $m$ odd, is exactly $2^r$. This gives the following formulae:
+\begin{align*}
+\exp\widetilde{H}^n(K(\Z/2,2);\Z)&=\begin{cases}(n-1)_{(2)}&\text{if $n$ is odd}\\ 2&\text{if $n\geq6$ is even}\\1&\text{if $n\in\{0,1,2,4\}$}\end{cases}\\
+\exp\widetilde{H}_n(K(\Z/2,2);\Z)&=\begin{cases}n_{(2)}&\text{if $n$ is even}\\ 2&\text{if $n\geq5$ is odd}\\1&\text{if $n\in\{0,1,3\}$}\end{cases}
+\end{align*} 
+where $l_{(2)}$ denotes the part at the prime $2$ in the primary decomposition of $l$.
+\end{cor}
+
+\begin{proof}
+Since $u_2$ has transverse $\infty$-implications, we have $d_{r+1}\{u_2^{2^r}\}_{r+1}\not=0$. Therefore, since $m$ is odd, we have $d_{r+1}\{u_2^{2^rm}\}_{r+1}=d_{r+1}\{u_2^{2^r}\}_{r+1}^m=\{u_2^{2^r}\}_{r+1}^{m-1}d_{r+1}\{u_2^{2^r}\}_{r+1}\not=0$. Thus $H^{2^r m+1}(K(\Z/2,2);\Z)$ contains an element of order $2^r$. The result follows from the fact that $u_2$ is the single indecomposable elements with transverse $\infty$-implications and the Cartan's formula for decomposable elements.
+\end{proof}
+
+\begin{exmp}
+The first cohomology class of order $4$ in $H^*(K(\Z/2,3);\Z)$ is in degree $13$ and is given by $d_2\{(Sq^{2,1}u_3)^2\}_2$($=\{Sq^{2,1}u_3Sq^{3,1}u_3+Sq^{6,3,1}u_3\}_2\not=0$) in $E_2^{13}$.
+\end{exmp}
+
+\begin{rem}
+Let us consider the mod $2$ cohomological Bockstein spectral sequence of $BSO$. It's well known that $H^*(BSO;\F_2)\cong\F_2[w_j\ |\ j\geq2]$ with the degree of $w_j$ equal to $j$ (see for instance \cite[p. 216]{Mc-00}). We deduce from Wu's formula ($Sq^1w_j=w_{j+1}$ for $j$ even, see for instance \cite[Part I, p. 138]{MT-91}) that 
+$$
+E_\infty^*(BSO)\cong E_2^*(BSO)\cong \F_2[w_{2j}^2\ |\ j\geq1].
+$$ Therefore $H^*(BSO;\F_2)$ contains primitive elements in even degrees which are not cocycles under $Sq^1$, namely all the $w_j$ with $j$ even, but no element with transverse $\infty$-implications. This shows that the hypothesis of Theorem \ref{t:extension} are not sufficient for a generalisation to all simply connected H-spaces (this was already clear for spaces which are not $1$-connected as $K(\Z/2,1)$ shows).
+\end{rem}
+
+\section{Spaces which retract onto an Eilenberg-MacLane}
+\label{s:retract}
+
+\begin{exmp}
+Let $X$ be the space given by the fibration
+$$\xymatrix{
+X\ar[r]^-j &K(\Z/2,2)\times K(\Z/2,2)\ar[r]^-{k} &K(\Z/2,4),
+}$$ with 
+\begin{align*}
+k &\in [K(\Z/2,2)\times K(\Z/2,2),K(\Z/2,4)]\\
+&\cong H^4(K(\Z/2,2)\times K(\Z/2,2);\F_2)\\
+&\cong H^2(K(\Z/2,2);\F_2)\otimes H^2(K(\Z/2,2);\F_2) \ni u_2\otimes v_2,
+\end{align*} where $u_2$ and $v_2$ are the fundamental classes. This space has only two non-trivial homotopy groups, namely $\pi_2(X)\cong\Z/2\oplus\Z/2$ and $\pi_3(X)\cong\Z/2$.
+Consider the inclusion map $i_1:K(\Z/2,2)\to K(\Z/2,2)\times K(\Z/2,2)$ in the first factor. Then clearly $i_1^*(u_2\otimes1)=w_2$ the fundamental class and $i_1^*(1\otimes v_2)=0$. Thus we have
+$$
+i_1^*(u_2\otimes v_2)=i_1^*(u_2\otimes1)i_1^*(1\otimes v_2)=0
+$$ and therefore there exists a map $\theta:K(\Z/2,2)\to X$ (not necesserly unique) such that the following diagram commutes up to homotopy:
+$$\xymatrix{
+&X\ar[d]^j\\
+K(\Z/2,2)\ar[r]^-{i_1}\ar@/^/@{.>}[ru]^\theta\ar@/_/[rd]_{*} &K(\Z/2,2)\times K(\Z/2,2)\ar[d]^{u_2\otimes v_2}\\
+&K(\Z/2,4).
+}$$ If $p_1:K(\Z/2,2)\times K(\Z/2,2)\to K(\Z/2,2)$ is the projection map onto the first factor, then $p_1j\theta\simeq p_1i_1\simeq\id$. In other words, the space $X$ retracts onto $K(\Z/2,2)$. It's easy to verify that $X$ contains nor $K(\Z/2,2)$ neither $K(\Z/2,3)$ as a direct factor.
+\end{exmp}
+
+\begin{prop}
+The space $X$ of the preceeding example has no universal exponent for its (reduced) cohomology over the integers.
+\end{prop}
+
+\begin{rem}
+The Eilenberg-Moore spectral sequence of the space $X$, which is not an H-space since $u_2\otimes v_2$ is not primitive, was deeply studied by C. Schochet in \cite{Sc-71}. He proved that $E_2\not=E_\infty$, contradicting an Hirsch conjecture. We will see in what follows that the conjecture remains true for stable two stage Postnikov systems, as proved L. Smith (see for instance \cite[Theorem 5.2, p. 92]{Sm-70}).
+\end{rem}
+
+According to Postnikov invariant theory, the spaces having the same homotopy groups than $X$ are classified by the elements of the cohomology group $$H^4(K(\Z/2,2)\times K(\Z/2,2);\F_2)\cong\F_2\{u_2^2\otimes1,u_2\otimes v_2,1\otimes v_2^2\}.$$ There is {\it a priori} $8$ homotopy types, but only $6$ are different up to homotopy equivalence, and they are classified by the elements $0$, $u_2^2\otimes1$, $u_2\otimes v_2$, $u_2^2\otimes1+u_2\otimes v_2$, $u_2^2\otimes1+1\otimes v_2^2$ and $u_2^2\otimes1+u_2\otimes v_2+1\otimes v_2^2$. Only $3$ of them are H-spaces, namely those classified by $0$, $u_2^2\otimes1$ and $u_2^2\otimes1+1\otimes v_2^2$. We will develop a method to determine which of these homotopy types retract onto an Eilenberg-MacLane space.
+
+\begin{defn}
+Let $W=\oplus_{1\leq k\leq t}\Sigma^{n_k}\F_2$ be a finite dimensional graded vector space over $\F_2$. We define the generalized Eilenberg-MacLane space
+$$
+K(W)=\prod_{1\leq k\leq t}K(\Z/2,n_k).
+$$ Then $\pi_*K(W)\cong W$ as a graded vector spaces.
+\end{defn}
+
+\begin{defn}
+If $V=\oplus_{1\leq j\leq s}\Sigma^{m_j}\F_2$ and $W=\oplus_{1\leq k\leq t}\Sigma^{n_k}\F_2$ are two finite dimensional graded vector spaces over $\F_2$. We say that $W$ is {\bf subordinated} to $V$ if $n_k\leq m_j$ for all $1\leq j\leq s$ and $1\leq k\leq t$.
+\end{defn}
+
+\begin{prop}
+If $U=\oplus_{1\leq i\leq r}\Sigma^{l_i}\F_2$ and $V=\oplus_{1\leq j\leq s}\Sigma^{m_j}\F_2$ are two finite dimensional graded vector spaces over $\F_2$ with $V$ subordinated to $U$. The set of classes $[K(U),K(V)]$ is then a vector space over $\F_2$ that injects in $M_{s\times r}(\F_2)$. The injection is deduced from the following obvious steps:
+\begin{align*}
+[K(U),K(V)] &\cong\prod_{1\leq j\leq s}H^{m_j}(K(U);\F_2)\\
+&\cong\prod_{1\leq j\leq s}\prod_{1\leq i\leq r}H^{m_j}(K(\Z/2,l_i);\F_2)\\
+&\hookrightarrow \prod_{1\leq j\leq s}\prod_{1\leq i\leq r}\Sigma^{l_i}\F_2\\
+&\cong M_{s\times r}(\F_2).
+\end{align*}
+The injection is an isomorphism if and only if $m_j=l_i$ for all $1\leq i\leq r$ and $1\leq j\leq s$. Moreover, if $W=\oplus_{1\leq k\leq t}\Sigma^{n_k}\F_2$ is subordinated to $V$, then the following diagram commutes:
+$$\xymatrix{
+[K(V),K(W)]\times[K(U),K(V)]\ar[d]\ar[r]^-\circ &[K(U),K(W)]\ar[d]\\
+M_{t\times s}(\F_2)\times M_{s\times r}(\F_2)\ar[r]_-\cdot &M_{t\times r}(\F_2),
+}$$ with $\circ$ denoting the composition of maps and $\cdot$ denoting the matrix multiplication.
+\end{prop}
+
+\begin{defn}
+Consider the following particular stable two stage Postnikov system:
+$$\xymatrix{
+X\ar[r] &K(U)\ar[r]^-k &K(U')
+}$$ with $U=\oplus_{1\leq i\leq r}\Sigma^{l}\F_2$ subordinated to itself, $U'=\oplus_{1\leq h\leq r'}\Sigma^{l'_h}\F_2$ and $k$ an H-map. We call such a system {\bf compliant}. If we denote $[K(U),K(U')]_H$ the subset of $[K(U),K(U')]$ consisting of classes associated to H-maps, then we have
+\begin{align*}
+[K(U),K(U')]_H &\cong\prod_{1\leq h\leq r'}P^{l'_h}H^*(K(U);\F_2)\\
+&\cong \prod_{1\leq h\leq r'}\prod_{1\leq i\leq r}P^{l'_h}H^*(K(\Z/2,l);\F_2)
+\end{align*} such that $k\mapsto (k_1,\dots,k_{r'})$ with the column vectors $k_h=(\lambda_{ih}Sq^{I_{ih}}u_l)_{1\leq i\leq r}$ for all $1\leq h\leq r'$ (we permit that the admissible sequence $I_{ih}$ is of excess equal to $l$, thus we obtain all the iterated squares of the fundamental class $u_l$). The {\bf matrix of the compliant system} is given by $\Lambda=(\lambda_{ih})\in M_{r\times r'}(\F_2)$. A matrix $M\in M_{r\times r}(\F_2)$ is a {\bf solution of the compliant system} if $M(\lambda_{ih})=0$. The compliant system is said to be {\bf solvable} if there exists a non-trivial such solution.
+\end{defn}
+
+\begin{thm}\label{t:retract}
+A compliant stable two stage Postnikov systems is solvable if and only if it retracts onto a generalized Eilenberg-MacLane space $K(W)$ with $W=\oplus_{1\leq k\leq t}\Sigma^{n_k}\F_2$.
+\end{thm}
+
+\begin{proof}
+To appear in my PhD thesis.
+\end{proof}
+
+\begin{cor}
+All solvable compliant stable two stage Postnikov systems have no universal exponent for their (reduced) cohomology over the integers.
+\end{cor}
+
+\begin{exmp}
+If we set $U=\Sigma^2\F_2\oplus\Sigma^2\F_2$ and $U'=\Sigma^4\F_2$, then we are in the hypothesis of the theorem. Let us compute $[K(U),K(U')]_H$. We have $P^{4}H^*(K((\Z/2),2);\F_2)\cong\F_2\{Sq^2u_2\}$. Thus $k=(k_1)$ with $k_1=\begin{pmatrix}\lambda_{11}Sq^2u_2\\ \lambda_{12}Sq^2u_2\end{pmatrix}$.
+If $\Lambda=\begin{pmatrix}1\\ 0\end{pmatrix}$, $\begin{pmatrix}0\\ 1\end{pmatrix}$ or $\begin{pmatrix}1\\ 1\end{pmatrix}$ respectively, then the matrices $\begin{pmatrix}0 &0\\ 0 &1\end{pmatrix}$, $\begin{pmatrix}1 &0\\ 0 &0\end{pmatrix}$ and $\begin{pmatrix}1 &1\\ 1 &1\end{pmatrix}$ are non-trivial solutions. {\bf Therefore all H-spaces with the same homotopy groups than $X$ have no universal exponent for their reduced cohomology over the integers. Actually, they all retract onto $K(\Z/2,2)$.}
+\end{exmp}
+
+\section{More complicated spaces}
+\label{s:more}
+
+\begin{exmp}\label{e:fundamental}
+Let us consider the following compliant stable two stage Postnikov system:
+$$\xymatrix{
+K(\Z/2,3)\ar[d]_\iota\ar@{=}[r] &K(\Z/2,3)\ar[d]\\
+X\ar[r]\ar[d]_\alpha &{*}\ar[d]\\
+K(\Z/2,2)\ar[r]_-{Sq^2} &K(\Z/2,4).
+}$$ It's matrix is clearly $\Lambda=(1)$ and the system is therefore not solvable and, following Theorem \ref{t:retract}, there is no retract of $X$ onto $K(\Z/2,2)$ or $K(\Z/2,3)$.
+\end{exmp}
+
+This example shows, as one can expect, that the problem of determining if a space has a universal exponent for its reduced cohomology over the integers may be more tricky than simply looking for topological retracts. In order to have a better hold on the problem, we will exploit further the results we already obtained on the cohomology of the Eilenberg-MacLane spaces.
+
+\begin{thm}
+Let $\iota:F\to X$ be a continuous map. If there is an $x\in H^*(X;\F_2)$ such that $\iota^*(x)\not=0\in H^*(F;\F_2)$ has transverse $\infty$-implications, then $x$ has transverse $\infty$-implications.
+\end{thm}
+
+\begin{proof}
+Let $E_r^*(X)$, respectively $E_r^*(F)$, be the (mod $2$ cohomological) Bockstein spectral sequence of $X$, respectively $F$. By functoriality of these spectral sequences we have algebra homomorphisms $\iota_r:E_r^*(X)\to E_r^*(F)$ for all $r\geq1$. Suppose now that $x$ is of degree $n$ and has no transverse $\infty$-implications. Then there exists $m\geq0$ such that $x$ has transverse $m$-implications and $\{x^{2^{m+1}}\}_{m+2}=0\in E_{m+2}^{2^{m+1} n}(X)$. Then we have
+$$
+\{\iota^*(x)^{2^{m+1}}\}_{m+2}=\{\iota^*(x^{2^{m+1}})\}_{m+2}=\iota_{m+2}\{x^{2^{m+1}}\}_{m+2}=0,
+$$ which yields a contradiction in $E_{m+2}^*(F)$.
+\end{proof}
+
+\begin{cor}
+Let $\iota:K(\Z/2,n)\to X$ be an H-map. If $X$ has a no transverse $\infty$-implication, then $\iota^*Sq^1P^\text{even}H^*(X;\F_2)=0$.
+\end{cor}
+
+\begin{proof}
+We will prove the converse. Suppose that $x\in P^\text{even}H^*(X;\F_2)$ is such that $\iota^*Sq^1(x)\not=0$. Then $Sq^1\iota^*(x)\not=0$ with $\iota^*(x)\in P^\text{even}H^*(K(\Z/2,n);\F_2)$ since $\iota$ is an H-map. By Theorem \ref{t:extension}, $\iota^*(x)$ has transverse $\infty$-implications, as well as $x$ by the preceeding Theorem.
+\end{proof}
+
+The following result is now sufficient to solve the problem posed by the Example \ref{e:fundamental}.
+
+\begin{prop}
+Let $X$ be as in Example \ref{e:fundamental}. There exists an element $x\in H^4(X;\F_2)$ such that $\iota^*(x)=Sq^1u_3\in H^4(K(\Z/2,3);\F_2)$.
+\end{prop}
+
+\begin{proof}
+By inspection of the (mod $2$ cohomological) Serre spectral sequence associated to the fibration $\xymatrix{K(\Z/2,3)\ar[r]^-\iota &X\ar[r]^-\alpha &K(\Z/2,2)}$. For the $E_2$ term we have the following:
+$$\xymatrix@R=0.1cm@C=0.1cm{
+&&\\
+{\bf Sq^1u_3}  &&0 &{*} &{*} &{*}\\
+{\bf u_3}  &&0 &u_2u_3&{*} &{*}\\
+{\bf 0} &&0 &0 &0 &0\\
+{\bf 0} &&0 &0 &0 &0\\ \ar@{-}[rrrrrr] &&&&&&\\
+{\bf 1} &\ar@{-}[uuuuuu] &{\bf 0} &{\bf u_2} &{\bf Sq^1u_2} &{\bf u_2^2}
+}$$
+The fundamental class $u_3$ transgresses to $u_2^2$ since $k=Sq^2$. Using the fact that stable cohomological operations commute with transgressions, we conclude that $Sq^1u_3$ transgresses to $Sq^1(u_2^2)=0$. In other words, $Sq^1u_3$ survives to $E_\infty^{0,4}$ and the result follows from the composition
+$$\xymatrix{
+\iota^*:H^4(X;\F_2)\ar@{->>}[r] &E_\infty^{0,4}\cong E_5^{0,4}\subset\dots\subset E_2^{0,4}\cong H^4(K(\Z/2,3);\F_2).
+}$$
+\end{proof}
+
+\begin{thm}
+The space $X$ of Example \ref{e:fundamental} possesses transverse $\infty$-implications starting with $Sq^2 x$, where $x$ is given by the preceeding Proposition. Therefore, $X$ has no universal exponent for its (reduced) cohomology over the integers.
+\end{thm}
+
+\begin{proof}
+We have $\iota^*(Sq^2 x)=Sq^2\iota^*(x)=Sq^{2,1}u_3\in P^\text{even}H^*(K(\Z/2,3);\F_2)$ (in particular $Sq^2x\not=0$). Moreover $Sq^1Sq^{2,1}u_3=Sq^{3,1}u_3\not=0$.
+\end{proof}
+
+\section{Further developpments}
+\label{s:developpments}
+
+The problem of determining which classes in $H^*(X;\F_2)$ arise from the cohomology of the fibre may be more difficult than in the example treated before. Fortunately, the Eilenberg-Moore spectral sequence for stable two stage Postnikov systems converges very quickly, and then reveals more efficient than the Serre spectral sequence.
+
+\begin{thm}\label{t:EM}
+Let $p:E\to B$ be a fibration with a connected simple fibre. Let $f:X\to B$ be a continuous map and $E_f$ the total space of the induced fibration of $p$ over $f$. In other words we have the following pullback:
+$$\xymatrix{
+E_f\ar[r]\ar[d]_{p'} &E\ar[d]^p\\
+X\ar[r]_-f &B.
+}$$ Then there exists a second quadrant spectral sequence $\{E_r^{*,*},d_r\}$ with
+$$
+E_2^{*,*}\cong\Tor_{H^*(B;\F_2)}^{*,*}(H^*(X;\F_2),H^*(E;\F_2))
+$$ and converging to $H^*(E_f;\F_2)$ (strongly when $B$ is simply connected).
+\end{thm}
+
+\begin{proof}
+See originally \cite{EM-66} or see \cite[Theorem 6.2, pp. 51-52]{Sm-70} for a more conceptual proof in terms of K\"unneth spectral sequence.
+\end{proof}
+
+The definition of the functor $\Tor_{(-)}^{*,*}(-,-)$ is rather technical and involves homological algebra (see for instance \cite[Definition 7.5, p. 240]{Mc-00}). In order to compute $\Tor_\Gamma(M,N)$, we need a proper projective resolution of the left $\Gamma$-module $N$. This can be done using one of the more useful explicit constructions in homological algebra, namely the {\bf bar construction}. The bar construction can become quite large and complicated. But one of the features of homological algebra is the invariance of the derived functors with regard to the choice of resolution and so the construction of smaller and more manageable resolutions is of key interest. We will give here a method to compute $\Tor_\Gamma(M,N)$ when $\Gamma$, $M$ and $N$ are free graded commutative objects over $\F_2$. This will be achieved using {\bf Koszul complexes}.
+
+\begin{thm}
+Let $S$ be a graded set and $L$ a graded commutative algebra over $\F_2[S]$. Then there is an isomorphism of bigraded algebras over $\F_2$
+$$
+\Tor^{*,*}_{\F_2[S]}(L,\F_2)\cong H(\Lambda_{\F_2}(\Sigma^{-1}S)\otimes_{\F_2}L,d_L)
+$$ where the Koszul complex $\Lambda_{\F_2}(\Sigma^{-1}S)\otimes_{\F_2}L$ has the differential $d_L$ given by
+$$
+d_L(\sigma^{-1}x\otimes l)=1\otimes xl\text{ for all $x\in S$}
+$$ and the bidegree is given by
+\begin{align*}
+\bideg(1\otimes l)&=(0,\deg(l))\text{ and}\\
+\bideg(\sigma^{-1}x\otimes 1)&=(-1,\deg(x)).
+\end{align*}
+\end{thm}
+
+\begin{proof}
+See \cite[Corollary 7.23, p. 260]{Mc-00}.
+\end{proof}
+
+\begin{cor}\label{c:system}
+Let us consider the following stable two stage Postnikov system:
+$$\xymatrix{
+X\ar[r]\ar[d] &{*}\ar[d]\\
+K(U)\ar[r]_-k &K(V)
+}$$ and its Eilenberg-Moore spectral sequence $\{E_r^{*,*},d_r\}$ converging (strongly) to $H^*(X;\F_2)$. Then
+$$
+E_1^{*,*}\cong\Lambda_{\F_2}(\Sigma^{-1}S)\otimes_{\F_2}H^*(K(U);\F_2)\text{ and}
+$$ 
+$$
+d_1(\sigma^{-1}x\otimes l)=1\otimes xl\text{ for all $x\in S$,}
+$$ with $S$ the graded set consisting of all the generators of $H^*(K(U);\F_2)$ as a graded polynomial algebra over $\F_2$.
+\end{cor}
+
+We have to compute explicitely the $E_2$ term and deduce some results\dots
+
+%\begin{cor}
+%With the same hypothesis than Corollary \ref{c:system}, $E_2\cong E_\infty$.
+%\end{cor}
+
+\begin{thebibliography}{99}
+
+\bibitem{Br-61}{\sc William Browder}, {\it Torsion in H-spaces}, Annals of Math. 74 (1961), 24-51.
+
+\bibitem{Cl-00}{\sc Alain Cl\'ement}, {\it Un espace pour lequel $K(\Z/2,2)$ est un r\'etract}, Journal de l'IMA 2 (2000), 3-10. (See {\tt http://www.unil.ch/ima/journal})
+
+\bibitem{Cl-01}{\sc Alain Cl\'ement}, {\it Un espace ``sans r\'etract''}, Journal de l'IMA 3 (2001), 39-41. (See {\tt http://www.unil.ch/ima/journal})
+
+\bibitem{Ca-55}{\sc Henri Cartan}, {\it Alg\`ebres d'Eilenberg-MacLane et homotopie}, Expos\'es 2 \`a 11, S\'eminaire Henri Cartan, Ecole Normale Sup\'erieure, Paris, 1956. 
+
+\bibitem{EM-66}{\sc S. Eilenberg and J. C. Moore}, {\it Homology and fibrations. I. Coalgebras, cotensor product and its derived functors}, Comment. Math. Helv. 40 (1966), 199-236.
+
+\bibitem{Mc-00}{\sc John McCleary}, {\it A user's guide to spectral sequences}, Cambridge studies in advanced mathematics 58, second edition, Cambridge Univ. Press, 2000.
+
+\bibitem{MM-65}{\sc J. W. Milnor and J. C. Moore}, {\it On the structure of Hopf algebras}, Annals of Math. 81 (1965), 211-264.
+
+\bibitem{MT-91}{\sc M. Mimura and H. Toda}, {\it Topology of Lie groups I and II}, Translations of Math. Monographs 91 (1991).
+
+\bibitem{Sc-71}{\sc Claude Schochet}, {\it A two stage Postnikov system where $E_2\not=E_\infty$ in the Eilenberg-Moore spectral sequence}, Transactions of the AMS 157 (1971), 113-118.
+
+\bibitem{Se-53}{\sc Jean-Pierre Serre}, {\it Cohomologie modulo $2$ des complexes d'Eilenberg-MacLane}, Comm. Math. Helv. 27 (1953), 198-232.
+
+\bibitem{Sm-70}{\sc Larry Smith}, {\it Lectures on the Eilenberg-Moore spectral sequence}, Lecture Notes in Mathematics 134 (1970).
+
+\bibitem{SE-62}{\sc N. E. Steenrod and D. B. A. Epstein}, {\it Cohomology operations}, Annals of Math. Studies 50, Princeton Univ. Press, 1962.
+
+\end{thebibliography}
+
+
+\end{document}

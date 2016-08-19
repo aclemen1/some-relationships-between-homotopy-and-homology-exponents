@@ -1,0 +1,19 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[english]{babel}
+
+\begin{document}
+\sloppy
+
+\title{Some relationships between\\ homotopy and homology exponents}
+\author{Alain Cl\'ement}
+\maketitle
+
+\begin{abstract}
+We investigate the integral homology of spaces having a homotopy exponent. The main examples considered here are simply connected Postnikov pieces with finite homotopy groups and we would like to know if it is possible for them to have a homology exponent.
+
+By the work of \mbox{H. Cartan} it is well known that the answer is "no" for simply connected \mbox{Eilenberg-MacLane} spaces associated to finite groups since their integral homology groups contain torsion elements of arbitrarily high order. Therefore any finite product of such spaces has the same property. 
+
+The situation is less trivial when the \mbox{Postnikov} invariants of a \mbox{Postnikov} piece are non-trivial. In some cases the space retracts onto an \mbox{Eilenberg-MacLane} and thus the question has an obvious \mbox{\it topological}  answer. We shall exhibit more complicated spaces having elements of arbitrarily high order in integral homology by using \mbox{\it algebraic} tools as \mbox{Cartan's work} and the Bockstein spectral sequence.
+\end{abstract}
+
+\end{document}

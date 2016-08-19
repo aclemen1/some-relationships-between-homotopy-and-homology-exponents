@@ -1,0 +1,55 @@
+This is TeX, Version 3.14159 (MiKTeX 2 UP 1) (preloaded format=latex 2000.11.28)  7 MAY 2001 13:01
+**abstract.tex
+(abstract.tex
+LaTeX2e <2000/06/01>
+Babel <v3.6Z> and hyphenation patterns for english, french, german, ngerman, du
+mylang, nohyphenation, loaded.
+(E:\Program Files\MiKTeX\tex\latex\base\article.cls
+Document Class: article 2000/05/19 v1.4b Standard LaTeX document class
+(E:\Program Files\MiKTeX\tex\latex\base\size12.clo
+File: size12.clo 2000/05/19 v1.4b Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(E:\Program Files\MiKTeX\tex\generic\babel\babel.sty
+Package: babel 1999/09/09 v3.6Z The Babel package
+
+(E:\Program Files\MiKTeX\tex\generic\babel\english.ldf
+Language: english 1999/04/11 v3.3i English support from the babel system
+
+(E:\Program Files\MiKTeX\tex\generic\babel\babel.def
+File: babel.def 1999/09/09 v3.6Z Babel common definitions
+\babel@savecnt=\count87
+\U@D=\dimen103
+))) (abstract.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 9.
+ [1
+
+]
+(abstract.aux) )
+Output written on abstract.dvi (1 page, 1912 bytes).

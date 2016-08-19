@@ -1,0 +1,50 @@
+\documentclass[11pt,a4paper,landscape]{slides}
+\usepackage{t1enc}
+\usepackage[latin1]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[all]{xy}
+\pagestyle{plain}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{conj}{Conjecture}
+\newtheorem{exmp}{Example}
+
+%\DeclareMathOperator{\deg}{deg}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\red}{red}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\bideg}{bideg}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathcal{A}}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+
+\begin{document}
+\sloppy
+
+\centerline{Leray-Serre spectral sequence for the fibration}
+\centerline{$\xymatrix{
+X\ar[r] &K(\Z/2,2)\ar[r]^-{Sq^2} &K(\Z/2,4)
+}$}
+$$\xymatrix{
+&&\\
+{\bf Sq^1u_3}  &&0 &{*} &{*} &{*}\\
+{\bf u_3}  &&0 &u_2u_3&{*} &{*}\\
+{\bf 0} &&0 &0 &0 &0\\
+{\bf 0} &&0 &0 &0 &0\\ \ar@{-}[rrrrrr] &&&&&&\\
+{\bf 1} &\ar@{-}[uuuuuu] &{\bf 0} &{\bf u_2} &{\bf Sq^1u_2} &{\bf u_2^2}
+}$$
+\newpage
+
+\end{document}
